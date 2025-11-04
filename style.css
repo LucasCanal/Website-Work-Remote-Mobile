@@ -1,0 +1,531 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Epilogue', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 10rem;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 2rem;
+}
+
+/* Agrupa logo e menu */
+.left-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.nav-links {
+  margin-left: 10rem;
+  /* espaço entre logo e menu */
+}
+
+.nav-links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 25px;
+  gap: 6.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: hsl(0, 0%, 41%);
+  transition: color 0.3s;
+  font-size: 2rem;
+}
+
+.nav-links a:hover {
+  color: #696969;
+}
+
+/* Login e Register à direita */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  /* separa Login e Register */
+}
+
+.auth-buttons a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.login {
+  color: hsl(0, 0%, 41%);
+}
+
+.register {
+  border: 1px solid hsl(0, 0%, 41%);
+  border-radius: 12px;
+  padding: 1.2rem 2.0rem;
+  color: hsl(0, 0%, 41%);
+  transition: all 0.3s;
+}
+
+.register:hover {
+  border-color: hsl(0, 0%, 8%);
+  color: hsl(0, 0%, 8%);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+h1 {
+  font-size: 7.5rem;
+  font-weight: 700;
+  color: #151515;
+  line-height: 1;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+
+p {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 50px;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.learn-more-button {
+  background-color: #151515;
+  /* Fundo preto */
+  color: #ffffff;
+  /* Texto branco */
+  font-family: 'Epilogue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 25px 40px;
+  border: 2px solid #151515;
+  border-radius: 20px;
+  /* Bordas arredondadas */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Animação suave para o hover */
+}
+
+.learn-more-button:hover {
+  background-color: #fafafa;
+  /* Fundo transparente ao passar o mouse */
+  color: #151515;
+  /* Texto preto ao passar o mouse */
+}
+
+/* --- Logos dos Clientes --- */
+.client-logos {
+  margin-top: 100px;
+  /* Espaço acima dos logos */
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  /* Espaçamento entre os logos */
+}
+
+.client-logos img {
+  height: 30px;
+  /* Altura fixa para manter o alinhamento */
+}
+
+.hero-image img {
+  width: 60rem;
+}
+
+.nav-links .dropdown {
+  position: relative;
+  /* Essencial para o posicionamento do menu */
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-family: 'Epilogue', sans-serif;
+  font-size: inherit;
+  font-size: 2rem;
+  color: #696969;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Efeito hover para os links e o botão */
+.dropdown-btn:hover,
+.nav-links a:hover {
+  color: #696969;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  /* Permite que o menu flutue */
+  left: 0;
+  /* Alinha com a esquerda do botão "Features" */
+  top: calc(100% + 15px);
+  /* Posiciona 15px abaixo do botão */
+  /* Estilo do container */
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 35px;
+  list-style: none;
+  /* Remove as bolinhas da lista */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: max-content;
+  /* Largura se ajusta ao item mais longo */
+}
+
+.dropdown-menu:not(.show) {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+  /* Apenas torna o bloco visível, mantendo o layout vertical */
+}
+
+/* Itens dentro do menu dropdown */
+.dropdown-menu li {
+  color: #696969;
+  cursor: pointer;
+  display: flex;
+  /* Alinha o ícone e o texto lado a lado */
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  /* Espaço entre o ícone e o texto */
+}
+
+.dropdown-menu.show a {
+  font-size: 2rem;
+}
+
+.nav-links .dropdown {
+  position: relative;
+}
+
+/* Espaçamento entre os itens, exceto o último */
+.dropdown-menu li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.dropdown-btn:hover,
+.nav-links a:hover,
+.nav-list a:hover {
+  color: #070707;
+}
+
+/* A setinha */
+.arrow {
+  transition: transform 0.5s ease;
+}
+
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu li img {
+  width: 16px;
+  /* Força todos os ícones a terem a mesma largura */
+  /* Isso garante que o texto que vem depois comece sempre na mesma posição */
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle img {
+  width: 28px;
+}
+
+/* ========================== */
+/* ===== MENU MOBILE ======== */
+/* ========================== */
+
+.nav-hamburguer {
+  display: none;
+  position: relative;
+}
+
+/* 3 tracinhos */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 30;
+}
+
+.mobile-menu div {
+  width: 100%;
+  height: 3px;
+  background-color: #151515;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Efeito de X */
+.mobile-menu.active .line1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Painel lateral */
+.nav-list {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 65%;
+  height: 100vh;
+  background-color: #fff;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 2.5rem;
+  gap: 2rem;
+  transition: right 0.4s ease;
+  z-index: 25;
+  overflow-y: auto;
+}
+
+.nav-list.active {
+  right: 0;
+}
+
+/* Links */
+.nav-list a {
+  text-decoration: none;
+  color: #696969;
+  font-weight: 500;
+}
+
+/* Itens após o menu Company */
+.nav-list li:nth-child(n+4) a {
+  font-size: 1.7rem;
+}
+
+/* Overlay escuro */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 20;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Login/Register dentro do menu */
+.auth-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.auth-mobile .login {
+  color: #696969;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.auth-mobile .register {
+  border: 1px solid hsl(0, 0%, 41%);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  color: #696969;
+  text-decoration: none;
+}
+
+/* ========================== */
+/* ===== RESPONSIVO ======== */
+/* ========================== */
+
+@media (max-width: 768px) {
+
+  /* Estas regras você já tem */
+  .nav-links,
+  .auth-buttons {
+    display: none;
+  }
+
+  .logo {
+    width: 10vh;
+  }
+
+  .nav-hamburguer {
+    display: block;
+  }
+
+  .navbar {
+    padding: 2rem;
+  }
+
+  .hero-container {
+    /* Muda para layout de coluna e inverte a ordem (imagem primeiro) */
+    flex-direction: column-reverse;
+    margin-top: 2rem;
+    /* Reduz o espaço no topo */
+  }
+
+  .hero-image {
+    width: 100%;
+    margin-bottom: 4rem;
+    /* Espaço entre a imagem e o texto */
+  }
+
+  /* Troca a imagem de desktop pela de mobile */
+  .hero-image img {
+    content: url('./images/image-hero-mobile.png');
+    width: 100%;
+  }
+
+  .hero-text {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  .dropdown-btn {
+    font-size: 1.7rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.7rem;        /* tamanho fiel ao mobile */
+    font-weight: 700;         /* mesmo peso da fonte */
+    line-height: 1.0;         /* altura compacta igual ao design */
+    color: hsl(0, 0%, 8%);    /* preto suave */
+    margin-bottom: 2.5rem;    /* espaço igual ao original */
+    white-space: nowrap;  
+  }
+
+  .hero-text p {
+    font-size: 0.5rem;
+    line-height: 1.5;
+    color: hsl(0, 0%, 41%);
+    font-weight: 500;
+    margin-bottom: 3rem;        /* largura confortável pra leitura */
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal; /* Garante que quebra normalmente */
+    word-wrap: break-word; /* Quebra palavras longas */
+    overflow-wrap: break-word;
+  }
+
+  .learn-more-button {
+    font-weight: 500;
+  }
+
+  .learn-more-button {
+    font-size: 0.5rem;
+    padding: 15px 25px;
+    /* Reduz o tamanho do botão */
+  }
+
+  .client-logos {
+    margin-top: 4rem;
+    /* Ajusta o espaço acima dos logos */
+    justify-content: space-between;
+    /* Distribui os logos */
+    gap: 1rem;
+    /* Reduz o gap */
+  }
+
+  /* Reduz o tamanho dos logos para caberem melhor */
+  .client-logos img {
+    height: auto;
+    /* Ajusta a largura máxima para eles não ficarem muito grandes */
+    max-width: 20%;
+  }
+}
+
+/* Adiciona o ícone de fechar dentro do painel */
+.close-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+  /* Espaço abaixo do X */
+  cursor: pointer;
+}
+
+/* Redefine o comportamento do dropdown DENTRO do menu mobile */
+.nav-list .dropdown-menu{
+  /* MUITO IMPORTANTE: Reseta o posicionamento do desktop */
+  position: static;
+  display: none;
+  font-size: 1.5rem;
+  /* Começa escondido, como antes */
+
+  /* Remove estilos do desktop que não queremos no mobile */
+  box-shadow: none;
+  width: 100%;
+
+  /* Ajusta o espaçamento para o visual aninhado */
+  padding: 0;
+  margin-top: 2rem;
+  padding-left: 2.5rem;
+  /* Indentação para os sub-itens */
+}
+
+/* Mostra o menu quando a classe .show for adicionada pelo JS */
+.nav-list .dropdown-menu.show {
+  display: block;
+  }
+
+
+/* Ajusta o espaçamento dos itens do sub-menu */
+.nav-list .dropdown-menu li {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.dropdown-menu.show a {
+  font-size: 1.5rem;
+}
+
+.nav-list .dropdown-menu li:last-child {
+  margin-bottom: 0;
+}

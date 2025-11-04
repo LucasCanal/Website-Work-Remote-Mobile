@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/remote-working.png">
+  <title>Snap</title>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="left-content">
+      <div class="logo">
+        <img src="./images/logo.svg" alt="logo-header">
+      </div>
+
+      <nav class="nav-links">
+        <ul>
+          <li class="dropdown">
+            <button class="dropdown-btn">
+              Features
+              <img src="./images/icon-arrow-down.svg" alt="seta" class="arrow">
+            </button>
+          
+            <ul class="dropdown-menu">
+              <li><img src="./images/icon-todo.svg" alt=""> Todo List</li>
+              <li><img src="./images/icon-calendar.svg" alt=""> Calendar</li>
+              <li><img src="./images/icon-reminders.svg" alt="">  Reminders</li>
+              <li><img src="./images/icon-planning.svg" alt=""> Planning</li>
+            </ul>
+          </li>
+          
+          <li class="dropdown">
+            <button class="dropdown-btn">
+              Company
+              <!-- Corrigido de "arrpw" para "arrow" -->
+              <img src="./images/icon-arrow-down.svg" alt="seta para baixo" class="arrow">
+            </button>
+      
+            <ul class="dropdown-menu">
+              <li><a href="#">History</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="auth-buttons">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="register">Register</a>
+    </div>
+
+    <nav class="nav-hamburguer">
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    
+      <div class="overlay"></div>
+    
+      <ul class="nav-list">
+        <div class="close-menu">
+            <img src="./images/icon-close-menu.svg" alt="Fechar menu">
+        </div>
+        <li class="dropdown">
+          <button class="dropdown-btn">
+            Features
+            <img src="./images/icon-arrow-down.svg" alt="seta" class="arrow">
+          </button>
+          <ul class="dropdown-menu">
+            <li><img src="./images/icon-todo.svg" alt=""> Todo List</li>
+            <li><img src="./images/icon-calendar.svg" alt=""> Calendar</li>
+            <li><img src="./images/icon-reminders.svg" alt=""> Reminders</li>
+            <li><img src="./images/icon-planning.svg" alt=""> Planning</li>
+          </ul>
+        </li>
+    
+        <li class="dropdown">
+          <button class="dropdown-btn">
+            Company
+            <img src="./images/icon-arrow-down.svg" alt="seta" class="arrow">
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">History</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </li>
+    
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">About</a></li>
+    
+        <div class="auth-mobile">
+          <a href="#" class="login">Login</a>
+          <a href="#" class="register">Register</a>
+        </div>
+      </ul>
+    </nav>
+    
+  </header>
+
+  <main class="hero-container">
+    <!-- Seção do conteúdo de texto (lado esquerdo) -->
+    <div class="hero-text">
+        <h1>Make remote work</h1>
+        <p>
+            Get your team in sync, no matter your location.
+            Streamline processes, create team rituals, and
+            watch productivity soar.
+        </p>
+        <button class="learn-more-button">Learn more</button>
+
+        <!-- Logos dos clientes na parte inferior -->
+        <div class="client-logos">
+            <img src="./images/client-databiz.svg" alt="Databiz logo">
+            <img src="./images/client-audiophile.svg" alt="Audiophile logo">
+            <img src="./images/client-meet.svg" alt="Meet logo">
+            <img src="./images/client-maker.svg" alt="Maker logo">
+        </div>
+    </div>
+
+    <!-- Seção da imagem (lado direito) -->
+    <div class="hero-image">
+        <img src="./images/image-hero-desktop.png" alt="Ilustração de uma pessoa trabalhando remotamente">
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+
+</html>
