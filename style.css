@@ -16,7 +16,6 @@ body {
   justify-content: space-between;
   padding: 3rem 10rem;
   border-bottom: 2px solid #f0f0f0;
-  font-size: 2rem;
 }
 
 /* Agrupa logo e menu */
@@ -40,7 +39,7 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
-  padding: 25px;
+  padding: 10px;
   gap: 6.5rem;
 }
 
@@ -48,7 +47,7 @@ body {
   text-decoration: none;
   color: hsl(0, 0%, 41%);
   transition: color 0.3s;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .nav-links a:hover {
@@ -66,7 +65,7 @@ body {
 .auth-buttons a {
   text-decoration: none;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .login {
@@ -95,7 +94,7 @@ body {
 }
 
 h1 {
-  font-size: 7.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   color: #151515;
   line-height: 1;
@@ -105,7 +104,7 @@ h1 {
 
 
 p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   margin-bottom: 50px;
   white-space: pre-line;
@@ -118,9 +117,9 @@ p {
   color: #ffffff;
   /* Texto branco */
   font-family: 'Epilogue', sans-serif;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   font-weight: 500;
-  padding: 25px 40px;
+  padding: 19px 25px;
   border: 2px solid #151515;
   border-radius: 20px;
   /* Bordas arredondadas */
@@ -147,12 +146,12 @@ p {
 }
 
 .client-logos img {
-  height: 30px;
+  height: 21px;
   /* Altura fixa para manter o alinhamento */
 }
 
 .hero-image img {
-  width: 60rem;
+  width: 45rem;
 }
 
 .nav-links .dropdown {
@@ -165,7 +164,7 @@ p {
   border: none;
   font-family: 'Epilogue', sans-serif;
   font-size: inherit;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #696969;
   cursor: pointer;
   display: flex;
@@ -212,15 +211,12 @@ p {
   color: #696969;
   cursor: pointer;
   display: flex;
+  padding: 0px 10px;
   /* Alinha o ícone e o texto lado a lado */
   align-items: center;
   gap: 10px;
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   /* Espaço entre o ícone e o texto */
-}
-
-.dropdown-menu.show a {
-  font-size: 2rem;
 }
 
 .nav-links .dropdown {
