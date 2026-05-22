@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/remote-working.png">
+  <title>Login — Snap</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="left-content">
+      <div class="logo">
+        <a href="index.html"><img src="./images/logo.svg" alt="logo-header"></a>
+      </div>
+    </div>
+    <div class="auth-buttons">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+          <span class="theme-icon sun">☀️</span>
+          <span class="theme-icon moon">🌙</span>
+        </span>
+      </button>
+    </div>
+    <nav class="nav-hamburguer">
+      <div class="mobile-top">
+        <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle dark mode">
+          <span class="toggle-emoji">🌙</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- AUTH LAYOUT -->
+  <main class="auth-main">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left reveal reveal-left">
+      <div class="auth-brand">
+        <h2>Welcome back.</h2>
+        <p>Sign in and get your team back in sync.</p>
+      </div>
+
+      <div class="auth-illustration">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="floating-card card-1 reveal reveal-up" style="--delay:0.3s">
+          <span class="card-icon">✅</span>
+          <div>
+            <strong>Daily standup</strong>
+            <small>9:00 AM · 4 members</small>
+          </div>
+        </div>
+
+        <div class="floating-card card-2 reveal reveal-up" style="--delay:0.5s">
+          <span class="card-icon">📅</span>
+          <div>
+            <strong>Sprint planning</strong>
+            <small>Tomorrow · 10:00 AM</small>
+          </div>
+        </div>
+
+        <div class="floating-card card-3 reveal reveal-up" style="--delay:0.7s">
+          <span class="card-icon">🔔</span>
+          <div>
+            <strong>3 reminders</strong>
+            <small>Due today</small>
+          </div>
+        </div>
+
+        <div class="left-widget reveal reveal-up" style="--delay:0.55s">
+          <div class="widget-header">
+            <span>Team productivity</span>
+            <span class="widget-badge">This week</span>
+          </div>
+          <div class="widget-bars">
+            <div class="bar-row">
+              <span>Design</span>
+              <div class="bar-track"><div class="bar-fill" style="width:82%; --bar-color:#6c6cff"></div></div>
+              <span>82%</span>
+            </div>
+            <div class="bar-row">
+              <span>Planning</span>
+              <div class="bar-track"><div class="bar-fill" style="width:67%; --bar-color:#f5c842"></div></div>
+              <span>67%</span>
+            </div>
+            <div class="bar-row">
+              <span>Marketing</span>
+              <div class="bar-track"><div class="bar-fill" style="width:91%; --bar-color:#4ade80"></div></div>
+              <span>91%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="left-quote reveal reveal-up" style="--delay:0.8s">
+        <p>"Snap cut our Monday chaos in half."</p>
+        <div class="quote-author">
+          <div class="avatar-group">
+            <span class="avatar">A</span>
+            <span class="avatar">M</span>
+            <span class="avatar">R</span>
+          </div>
+          <small>Ana, Marco & Rita · Product team</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-right reveal reveal-right">
+      <div class="auth-form-box">
+        <div class="auth-form-header">
+          <h1>Sign in</h1>
+          <p>Don't have an account? <a href="register.html">Register</a></p>
+        </div>
+
+        <form class="auth-form" id="loginForm" novalidate>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+            </div>
+            <span class="field-error" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="password" placeholder="Your password" autocomplete="current-password">
+              <button type="button" class="toggle-password" aria-label="Show password">
+                <span class="eye-icon">👁️</span>
+              </button>
+            </div>
+            <span class="field-error" id="passwordError"></span>
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" id="remember">
+              <span class="custom-checkbox"></span>
+              Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <span class="btn-text">Sign in</span>
+            <span class="btn-loader" hidden>
+              <span class="spinner"></span>
+            </span>
+          </button>
+
+          <div class="divider"><span>or continue with</span></div>
+
+          <div class="social-buttons">
+            <button type="button" class="btn-social">
+              <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.35-8.16 2.35-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+              Google
+            </button>
+            <button type="button" class="btn-social">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

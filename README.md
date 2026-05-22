@@ -1,45 +1,44 @@
-🌐 Work Remote Mobile
+# Snap Remote
 
-This project is a landing page inspired by a Frontend Mentor challenge, built with HTML, CSS, and JavaScript.
-The goal was to recreate a modern and responsive interface for a company focused on remote work, ensuring fidelity to the original design and an excellent experience across different devices.
+Dashboard SaaS multiusuário para gestão de tarefas, eventos e equipes remotas.
 
-🔗 Live Demo:
-👉 website-work-remote-mobile.vercel.app
+## Tecnologias
 
-🖥️ Overview
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js + Express
+- **Banco de dados:** MongoDB Atlas
+- **Autenticação:** JWT + bcrypt
 
-Work Remote Mobile was developed with a focus on clean structure, responsive layout, and semantic HTML.
-The page features a minimalistic design that highlights the main title, company information, and a fully interactive mobile navigation menu.
+## Como rodar
 
-⚙️ Technologies Used
+1. Clone o repositório e instale as dependências:
+```bash
+npm install
+```
 
-HTML5 → Semantic and well-structured content.
+2. Crie um arquivo `.env` na raiz:
+```env
+MONGODB_URI=sua_string_de_conexao
+JWT_SECRET=sua_chave_secreta
+```
 
-CSS3 → Styling with Flexbox and Grid for layout precision and responsiveness.
+3. Inicie o servidor:
+```bash
+node server.js
+```
 
-JavaScript → Handles the interactive hamburger menu and navigation behavior.
+4. Acesse `http://localhost:3000` no navegador.
 
-Main Features
+## Funcionalidades
 
-📱 Responsive design: Works smoothly on all screen sizes — desktop, tablet, and mobile.
+- Cadastro e login com autenticação real
+- Dados isolados por usuário (cada conta vê apenas os seus dados)
+- Todo List com kanban e drag & drop
+- Calendário, lembretes e métricas
+- Gerenciamento de equipe
+- Pomodoro Timer integrado
+- Dark/Light mode por usuário
 
-🍔 Functional mobile menu: Smooth open/close animations using vanilla JavaScript.
+## Licença
 
-🎨 Design accuracy: Typography, colors, and spacing closely match the original Frontend Mentor design.
-
-My Role / What I Learned
-
-I was responsible for the entire development process — from structure to styling and interactivity.
-
-Throughout the project, I improved my skills in:
-
-Writing semantic HTML
-
-Creating responsive layouts with Flexbox and Grid
-
-Implementing interactive menus using pure JavaScript
-
-Organizing and maintaining clean front-end code
-
-Developed by Lucas Canal 2025
- 🧑‍💻
+MIT

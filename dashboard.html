@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/remote-working.png">
+    <title>Dashboard — Snap Remote</title>
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <a href="index.html"><img src="../images/logo.svg" alt="Snap"></a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="overview">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-label">Overview</span>
+            </a>
+            <a href="#" class="nav-item" data-section="todos">
+                <span class="nav-icon">✅</span>
+                <span class="nav-label">Todo List</span>
+                <span class="nav-badge grey">0</span>
+            </a>
+            <a href="#" class="nav-item" data-section="calendar">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Calendar</span>
+            </a>
+            <a href="#" class="nav-item" data-section="reminders">
+                <span class="nav-icon">🔔</span>
+                <span class="nav-label">Reminders</span>
+                <span class="nav-badge red">0</span>
+            </a>
+            <a href="#" class="nav-item" data-section="metrics">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Metrics</span>
+            </a>
+            <a href="#" class="nav-item" data-section="team">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">Team</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-user-wrapper">
+                <div class="sidebar-user">
+                    <!-- ✅ Populado dinamicamente pelo dashboard.js -->
+                    <div class="user-avatar">?</div>
+                    <div class="user-info">
+                        <strong>Loading...</strong>
+                        <small></small>
+                    </div>
+                </div>
+                <a href="#" class="logout-item" title="Sign out">
+                    <span class="logout-icon">󰗼</span>
+                    <span class="logout-label">Sign out</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+
+        <header class="dash-topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="topbar-breadcrumb">
+                    <span id="currentSection">Overview</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search tasks, docs...">
+                </div>
+                <button class="btn-quick-add" id="quickAddBtn" title="Quick Create">+</button>
+                <button class="topbar-icon-btn" id="notifBtn" title="Notifications">
+                    🔔
+                    <span class="notif-dot"></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle-track">
+                        <span class="theme-toggle-thumb"></span>
+                        <span class="theme-icon sun">☀️</span>
+                        <span class="theme-icon moon">🌙</span>
+                    </span>
+                </button>
+                <div class="topbar-avatar">?</div>
+            </div>
+        </header>
+
+        <main class="dash-content">
+
+            <!-- ==================== OVERVIEW ==================== -->
+            <section class="dash-section active" id="section-overview">
+
+                <div class="section-header">
+                    <div>
+                        <h1 id="overviewGreeting">Welcome back 👋</h1>
+                        <p>You have <span class="text-accent">Loading...</span>Loading...<span class="text-urgent">Loading...</span>Loading...</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-date-pill" id="liveDatePill">
+                            <span class="live-indicator"></span>
+                            <span id="liveDateText">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card" style="--delay:0.05s">
+                        <div class="kpi-top">
+                            <div class="kpi-icon-bg">📋</div>
+                            <span class="kpi-trend up">↑ 12%</span>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value" id="kpiTasksCompleted">0</div>
+                            <div class="kpi-label">Tasks completed</div>
+                        </div>
+                        <div class="kpi-progress-track">
+                            <div class="kpi-progress-bar" style="width: 0" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="kpi-card" style="--delay:0.1s">
+                        <div class="kpi-top">
+                            <div class="kpi-icon-bg">🔥</div>
+                            <span class="kpi-trend up">↑ 5%</span>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Day streak</div>
+                        </div>
+                        <div class="kpi-progress-track">
+                            <div class="kpi-progress-bar" style="width: 0" data-width="40"></div>
+                        </div>
+                    </div>
+                    <div class="kpi-card highlight" style="--delay:0.15s">
+                        <div class="kpi-top">
+                            <div class="kpi-icon-bg">⏳</div>
+                            <span class="status-pill focus">Live</span>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value" id="kpiFocusTime">0h</div>
+                            <div class="kpi-label">Focus time today</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card" style="--delay:0.2s">
+                        <div class="kpi-top">
+                            <div class="kpi-icon-bg">🎯</div>
+                            <span class="kpi-trend down">↓ 3%</span>
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">0%</div>
+                            <div class="kpi-label">Sprint completion</div>
+                        </div>
+                        <div class="kpi-progress-track">
+                            <div class="kpi-progress-bar" style="width: 0" data-width="0"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mid-row-complex">
+
+                    <div class="dash-card reveal-up">
+                        <div class="card-header">
+                            <h3>Today's Priorities</h3>
+                            <button class="card-action" onclick="document.querySelector('[data-section=todos]').click()">View all</button>
+                        </div>
+                        <div class="priority-list" id="overviewPriorityList">
+                            <p style="color: var(--text-secondary); font-size: 1.3rem; padding: 1rem 0;">
+                                No tasks yet. Add your first task in the Todo List!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- POMODORO TIMER -->
+                    <div class="dash-card focus-card reveal-up">
+                        <div class="card-header">
+                            <h3>Pomodoro Session</h3>
+                            <span class="status-pill focus" id="pomodoroModeLabel">Deep Work</span>
+                        </div>
+                        <div class="focus-timer-container">
+                            <div class="timer-circle">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" id="pomodoroRing" stroke-dasharray="100, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="timer-text" id="pomodoroDisplay">25:00</div>
+                            </div>
+                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin: 0.5rem 0 1rem; text-align: center;" id="pomodoroSubtext">Focus — session 1/4</p>
+                            <div class="timer-controls">
+                                <button class="btn-timer-main" id="pomodoroBtn" onclick="togglePomodoro()">▶ Start session</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card reveal-up">
+                        <div class="card-header">
+                            <h3>Team Presence</h3>
+                        </div>
+                        <div class="presence-list" id="overviewTeamPresence">
+                            <p style="color: var(--text-secondary); font-size: 1.3rem; padding: 1rem 0;">
+                                No team members yet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SPRINT PROGRESS -->
+                <div class="dash-card reveal-up" id="sprintCard">
+                    <div class="card-header">
+                        <h3>Current Sprint — Q2 May 2026</h3>
+                        <button class="card-action" onclick="document.querySelector('[data-section=metrics]').click()">View metrics</button>
+                    </div>
+                    <div class="sprint-stats-row">
+                        <div class="sprint-stat-box">
+                            <span class="sprint-stat-num green" id="sprintDone">0</span>
+                            <span class="sprint-stat-lbl">Completed</span>
+                        </div>
+                        <div class="sprint-stat-box">
+                            <span class="sprint-stat-num yellow" id="sprintDoing">0</span>
+                            <span class="sprint-stat-lbl">In progress</span>
+                        </div>
+                        <div class="sprint-stat-box">
+                            <span class="sprint-stat-num red" id="sprintUrgent">0</span>
+                            <span class="sprint-stat-lbl">Urgent</span>
+                        </div>
+                        <div class="sprint-stat-box">
+                            <span class="sprint-stat-num accent">3</span>
+                            <span class="sprint-stat-lbl">Days left</span>
+                        </div>
+                    </div>
+                    <div class="sprint-progress-wrap">
+                        <div class="sprint-progress-header">
+                            <span>Overall progress</span>
+                            <span class="text-accent" style="font-weight: 700;" id="sprintPercent">0%</span>
+                        </div>
+                        <div class="kpi-progress-track">
+                            <div class="kpi-progress-bar sprint-progress-fill" style="width: 0" data-width="0" id="sprintProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTTOM ROW -->
+                <div class="bottom-row-complex">
+                    <div class="dash-card wide reveal-up">
+                        <div class="card-header">
+                            <h3>Productivity Velocity</h3>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="dot design"></span> Design</span>
+                                <span class="legend-item"><span class="dot dev"></span> Dev</span>
+                            </div>
+                        </div>
+                        <div class="chart-container-visual">
+                            <div class="visual-bars" id="productivityBars">
+                                <div class="v-bar" style="height: 40%"></div>
+                                <div class="v-bar" style="height: 65%"></div>
+                                <div class="v-bar" style="height: 50%"></div>
+                                <div class="v-bar" style="height: 85%"></div>
+                                <div class="v-bar" style="height: 60%"></div>
+                                <div class="v-bar" style="height: 90%"></div>
+                                <div class="v-bar active" style="height: 75%"></div>
+                            </div>
+                            <div class="chart-labels">
+                                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-card reveal-up">
+                        <div class="card-header">
+                            <h3>Activity Feed</h3>
+                        </div>
+                        <div class="activity-feed" id="activityFeed">
+                            <p style="color: var(--text-secondary); font-size: 1.3rem; padding: 1rem 0;">
+                                No recent activity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ==================== TODOS ==================== -->
+            <section class="dash-section" id="section-todos">
+                <div class="section-header">
+                    <div>
+                        <h1>Tasks & Projects ✅</h1>
+                        <p>Organize your workflow and priorities.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-primary" id="btnAddTask">+ Add Task</button>
+                    </div>
+                </div>
+                <div class="todo-toolbar reveal-up">
+                    <div class="search-box">
+                        <span>🔍</span>
+                        <input type="text" id="taskSearchInput" placeholder="Filter tasks...">
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">To Do</button>
+                        <button class="filter-btn">Done</button>
+                    </div>
+                </div>
+                <div class="todo-grid">
+                    <div class="todo-column reveal-up" style="--delay: 0.1s">
+                        <div class="column-header">
+                            <h3>To Do</h3>
+                            <span class="count-badge">0</span>
+                        </div>
+                        <div class="task-list" id="todoList" data-status="todo"></div>
+                    </div>
+                    <div class="todo-column reveal-up" style="--delay: 0.2s">
+                        <div class="column-header">
+                            <h3>Doing</h3>
+                            <span class="count-badge">0</span>
+                        </div>
+                        <div class="task-list" id="doingList" data-status="doing"></div>
+                    </div>
+                    <div class="todo-column reveal-up" style="--delay: 0.3s">
+                        <div class="column-header">
+                            <h3>Done</h3>
+                            <span class="count-badge">0</span>
+                        </div>
+                        <div class="task-list" id="doneList" data-status="done"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== CALENDAR ==================== -->
+            <section class="dash-section" id="section-calendar">
+                <div class="section-header">
+                    <div>
+                        <h1>Calendar 📅</h1>
+                        <p>Plan your development sprints and track deadlines.</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="view-pill">
+                            <button class="active">Month</button>
+                            <button>Week</button>
+                            <button>Day</button>
+                        </div>
+                        <button class="btn-primary" id="btnNewEvent">+ Create Event</button>
+                    </div>
+                </div>
+                <div class="full-calendar-card dash-card reveal-up">
+                    <div class="calendar-toolbar">
+                        <div class="cal-month-nav">
+                            <button class="nav-btn">‹</button>
+                            <h2>May 2026</h2>
+                            <button class="nav-btn">›</button>
+                        </div>
+                        <div class="cal-filters">
+                            <label class="check-item"><input type="checkbox" checked> <span class="dot work"></span> Work</label>
+                            <label class="check-item"><input type="checkbox" checked> <span class="dot personal"></span> Personal</label>
+                        </div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="weekday">Sun</div>
+                        <div class="weekday">Mon</div>
+                        <div class="weekday">Tue</div>
+                        <div class="weekday">Wed</div>
+                        <div class="weekday">Thu</div>
+                        <div class="weekday">Fri</div>
+                        <div class="weekday">Sat</div>
+                        <div class="day empty">26</div>
+                        <div class="day empty">27</div>
+                        <div class="day empty">28</div>
+                        <div class="day empty">29</div>
+                        <div class="day empty">30</div>
+                        <div class="day">1</div>
+                        <div class="day">2</div>
+                        <div class="day">3</div>
+                        <div class="day">4</div>
+                        <div class="day">5</div>
+                        <div class="day">6</div>
+                        <div class="day">7</div>
+                        <div class="day">8</div>
+                        <div class="day">9</div>
+                        <div class="day">10</div>
+                        <div class="day">11</div>
+                        <div class="day">12</div>
+                        <div class="day">13</div>
+                        <div class="day today">
+                            <span class="day-num">14</span>
+                        </div>
+                        <div class="day">15</div>
+                        <div class="day">16</div>
+                        <div class="day">17</div>
+                        <div class="day">18</div>
+                        <div class="day">19</div>
+                        <div class="day">20</div>
+                        <div class="day">21</div>
+                        <div class="day">22</div>
+                        <div class="day">23</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== REMINDERS ==================== -->
+            <section class="dash-section" id="section-reminders">
+                <div class="section-header">
+                    <div>
+                        <h1>Reminders 🔔</h1>
+                        <p>Don't miss a beat. Set quick alerts for your daily routine.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-primary" id="btnNewReminder">+ Quick Reminder</button>
+                    </div>
+                </div>
+                <div class="reminders-container reveal-up">
+                    <div class="reminders-main">
+                        <div id="remindersListContainer">
+                            <p style="color: var(--text-secondary); font-size: 1.3rem; padding: 1rem 0;">
+                                No reminders yet. Create your first one!
+                            </p>
+                        </div>
+                    </div>
+                    <aside class="reminders-stats">
+                        <div class="dash-card stat-mini">
+                            <span class="stat-icon">✅</span>
+                            <div class="stat-info">
+                                <strong id="remindersDoneCount">0</strong>
+                                <span>Completed today</span>
+                            </div>
+                        </div>
+                        <div class="dash-card stat-mini">
+                            <span class="stat-icon">⏳</span>
+                            <div class="stat-info">
+                                <strong id="remindersPendingCount">0</strong>
+                                <span>Pending alerts</span>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- ==================== METRICS ==================== -->
+            <section class="dash-section" id="section-metrics">
+                <div class="section-header">
+                    <div>
+                        <h1>Metrics 📊</h1>
+                        <p>Sua produtividade, projetos e time — tudo em um lugar.</p>
+                    </div>
+                    <div class="header-actions">
+                        <select class="card-select">
+                            <option>Esta semana</option>
+                            <option>Últimos 7 dias</option>
+                            <option>Este mês</option>
+                        </select>
+                        <button class="btn-primary" id="btnExportData">⬇ Exportar relatório</button>
+                    </div>
+                </div>
+
+                <div class="metrics-grid reveal-up">
+
+                    <!-- KPI CARDS — populados pelo metrics.js -->
+                    <div class="metrics-row-top">
+                        <div class="dash-card metric-card">
+                            <div class="metric-info">
+                                <span>✅ Tasks concluídas</span>
+                                <strong>—</strong>
+                            </div>
+                            <div class="metric-chart-mini"><span class="trend-up">carregando...</span></div>
+                        </div>
+                        <div class="dash-card metric-card">
+                            <div class="metric-info">
+                                <span>🔥 Day streak</span>
+                                <strong>—</strong>
+                            </div>
+                            <div class="metric-chart-mini"><span class="trend-up">carregando...</span></div>
+                        </div>
+                        <div class="dash-card metric-card">
+                            <div class="metric-info">
+                                <span>⏳ Foco hoje</span>
+                                <strong>—</strong>
+                            </div>
+                            <div class="metric-chart-mini"><span class="trend-up">carregando...</span></div>
+                        </div>
+                        <div class="dash-card metric-card">
+                            <div class="metric-info">
+                                <span>🎯 Sprint</span>
+                                <strong>—</strong>
+                            </div>
+                            <div class="metric-chart-mini"><span class="trend-up">carregando...</span></div>
+                        </div>
+                        <div class="dash-card metric-card">
+                            <div class="metric-info">
+                                <span>👥 Time online</span>
+                                <strong>—</strong>
+                            </div>
+                            <div class="metric-chart-mini"><span class="trend-up">carregando...</span></div>
+                        </div>
+                    </div>
+
+                    <!-- LINHA PRINCIPAL -->
+                    <div class="metrics-row-main">
+
+                        <!-- Tasks por dia da semana + streak grid (injetado pelo JS) -->
+                        <div class="dash-card wide-chart">
+                            <div class="card-header">
+                                <h3>Tasks concluídas esta semana</h3>
+                                <div class="chart-legend">
+                                    <span class="legend-item"><span class="dot dev"></span> Concluídas</span>
+                                </div>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="bar-chart">
+                                    <div class="bar" style="height: 4%;"></div>
+                                    <div class="bar" style="height: 4%;"></div>
+                                    <div class="bar" style="height: 4%;"></div>
+                                    <div class="bar" style="height: 4%;"></div>
+                                    <div class="bar" style="height: 4%;"></div>
+                                    <div class="bar" style="height: 4%;"></div>
+                                    <div class="bar active" style="height: 4%;"></div>
+                                </div>
+                            </div>
+                            <!-- streak grid injetado aqui pelo metrics.js -->
+                        </div>
+
+                        <!-- Pendentes por prioridade + activity feed (injetado pelo JS) -->
+                        <div class="dash-card side-metrics">
+                            <div class="card-header">
+                                <h3>Pendentes por prioridade</h3>
+                            </div>
+                            <div class="efficiency-list">
+                                <div class="eff-item">
+                                    <div class="eff-label"><span>🔴 Urgent</span><span>0</span></div>
+                                    <div class="progress-bar"><div class="progress" style="width:0%;background:#ef4444;"></div></div>
+                                </div>
+                                <div class="eff-item">
+                                    <div class="eff-label"><span>🟠 High</span><span>0</span></div>
+                                    <div class="progress-bar"><div class="progress" style="width:0%;background:#f97316;"></div></div>
+                                </div>
+                                <div class="eff-item">
+                                    <div class="eff-label"><span>🟡 Medium</span><span>0</span></div>
+                                    <div class="progress-bar"><div class="progress" style="width:0%;background:#f5c842;"></div></div>
+                                </div>
+                                <div class="eff-item">
+                                    <div class="eff-label"><span>🟢 Low</span><span>0</span></div>
+                                    <div class="progress-bar"><div class="progress" style="width:0%;background:#4ade80;"></div></div>
+                                </div>
+                            </div>
+                            <!-- activity feed injetado aqui pelo metrics.js -->
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== TEAM ==================== -->
+            <section class="dash-section" id="section-team">
+                <div class="section-header">
+                    <div>
+                        <h1>Team Collaboration 👥</h1>
+                        <p>Connect with your teammates and manage project roles.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-primary" id="btnInviteMember">+ Invite Member</button>
+                    </div>
+                </div>
+                <div class="team-layout reveal-up">
+                    <div class="team-grid" id="teamGrid">
+                        <div class="team-loading">Carregando membros do time...</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">New task</h3>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="../js/data-store.js"></script>
+    <script src="../js/ui-handler.js"></script>
+    <script src="../js/tasks.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/calendar.js"></script>
+    <script src="../js/reminders.js"></script>
+    <script src="../js/metrics.js"></script>
+    <script src="../js/team.js"></script>
+    <script src="../js/overview.js"></script>
+
+</body>
+</html>
