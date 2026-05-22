@@ -9,26 +9,6 @@ Dashboard SaaS multiusuário para gestão de tarefas, eventos e equipes remotas.
 - **Banco de dados:** MongoDB Atlas
 - **Autenticação:** JWT + bcrypt
 
-## Como rodar
-
-1. Clone o repositório e instale as dependências:
-```bash
-npm install
-```
-
-2. Crie um arquivo `.env` na raiz:
-```env
-MONGODB_URI=sua_string_de_conexao
-JWT_SECRET=sua_chave_secreta
-```
-
-3. Inicie o servidor:
-```bash
-node server.js
-```
-
-4. Acesse `http://localhost:3000` no navegador.
-
 ## Funcionalidades
 
 - Cadastro e login com autenticação real
