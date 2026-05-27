@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-// ── CONFIGURAÇÕES INICIAIS OBRIGATÓRIAS ──
+// ── CONFIGURAÇÕES INICIAIS OBRIGATÓRIAS (IMPORTANTE) ──
 app.use(cors());
 app.use(express.json()); // Processa JSON antes de qualquer outra coisa
 
@@ -134,9 +134,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// =============================================
-// 📂 ARQUIVOS ESTÁTICOS (DEIXAR SEMPRE NO FINAL)
-// =============================================
 // Serve o HTML, CSS e JS da pasta após verificar que a requisição não era uma rota de API
 app.use(express.static(__dirname));
 
